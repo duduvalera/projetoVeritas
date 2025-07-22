@@ -1,2 +1,12 @@
 :root {
+  --cor-0: #fff;
+  --cor-1: #07223b;
+}
+
+.cor-0 {
+  color: var(--cor-0);
+}
+
+.cor-1 {
+  color: var(--cor-1);
 }
