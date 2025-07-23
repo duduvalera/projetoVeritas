@@ -1,0 +1,120 @@
+/* fundo */
+
+.contato-bg {
+  background-color: #e8e9eb;
+}
+
+.container-titulo {
+  background-color: rgb(18, 28, 51);
+}
+
+.titulo-contato {
+  text-align: center;
+  padding: 20px 0;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.contato-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 800px;
+  gap: 40px;
+  margin: 0px auto;
+}
+
+.form-conteudo {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-conteudo label {
+  padding-top: 10px;
+}
+
+.dados-contato {
+  padding: 0px 10px;
+}
+
+.dados-contato .lista-contato {
+  padding: 15px 0px;
+}
+
+.dados-contato .lista-contato li {
+  padding: 5px 0px;
+}
+
+.subtitulo-contato {
+  padding: 20px 0px;
+}
+.form-conteudo.form-mensagem {
+  padding-bottom: 10px;
+}
+
+/* tire suas duvidas */
+.form-nome input,
+.form-email input,
+.form-mensagem textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  margin-top: 6px;
+  transition: 0.3s ease;
+  background-color: #ffffff;
+  color: #1f2937;
+}
+
+.form-nome input:focus,
+.form-email input:focus,
+.form-mensagem textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+  outline: none;
+}
+
+.form-mensagem textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* dados contato */
+.dados-contato .lista-contato li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+.dados-contato .lista-contato li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  border-radius: 2px;
+}
+
+.dados-contato .endereco-contato p {
+  position: relative;
+  padding-left: 20px;
+  margin: 6px 0;
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+.dados-contato .endereco-contato p::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 2px;
+  background: linear-gradient(90deg, #64748b, #94a3b8);
+  border-radius: 2px;
+}
