@@ -1,11 +1,17 @@
 /* fundo */
 
-.contato-bg {
+.main-bg {
   background-color: #e8e9eb;
 }
 
 .container-titulo {
   background-color: rgb(18, 28, 51);
+  position: relative;
+  left: 50%;
+  right: 50%;
+  width: 100vw; /* largura total da viewport */
+  margin-left: -50vw; /* puxa para esquerda metade da viewport */
+  margin-right: -50vw;
 }
 
 .titulo-contato {
