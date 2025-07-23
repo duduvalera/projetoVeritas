@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="header-bg">
+    <div class="container">
+      <nav class="header-menu">
+        <ul class="menu-lista font-2-s">
+          <li id="">
+            <a href="#">Home</a>
+          </li>
+          <li id="">
+            <a href="#">Contato</a>
+          </li>
+          <li id="">
+            <a href="">Login</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="header-logo">
+      <div class="logo-veritas">
+        <img src="../img/logo__.png" width="300px" alt="">
+      </div>
+      <h1 class="titulo-principal font-1-xxl cor-0">Login</h1>
+    </div>
+  </header>
+  <section class="main-bg">
+    <div class="container">
+      <div class="main">
+        <h1>Login</h1>
+        <input type="email" id="email" placeholder="Email"><br>
+        <input type="password" id="password" placeholder="Senha"><br>
+        <button onclick="signUp()">Cadastrar</button>
+        <button onclick="signIn()">Entrar</button>
+        <p id="status"></p>
+      </div>
+    </div>
+  </section>
+  <footer>
+
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>
