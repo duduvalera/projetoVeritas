@@ -1,4 +1,4 @@
-/* fundo */
+x/* fundo */
 
 .main-bg {
   background-color: #e8e9eb;
@@ -58,9 +58,8 @@
 }
 
 /* tire suas duvidas */
-.form-nome input,
-.form-email input,
-.form-mensagem textarea {
+.form-conteudo input,
+.form-conteudo textarea {
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #d1d5db;
@@ -71,15 +70,14 @@
   color: #1f2937;
 }
 
-.form-nome input:focus,
-.form-email input:focus,
-.form-mensagem textarea:focus {
+.form-conteudo input:focus,
+.form-conteudo textarea:focus {
   border-color: #3b82f6;
   box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
   outline: none;
 }
 
-.form-mensagem textarea {
+.form-conteudo textarea {
   min-height: 100px;
   resize: vertical;
 }
