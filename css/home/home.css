@@ -12,7 +12,8 @@
   font-family: "Poppins", sans-serif;
   color: #333;
   max-width: 900px;
-  margin: 20px auto;
+  margin: auto;
+  padding: 40px 0px;
 }
 
 .descricao-apresentacao {

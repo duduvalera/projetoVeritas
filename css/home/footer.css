@@ -1,0 +1,58 @@
+.footer-bg {
+  background-color: rgb(18, 28, 51);
+  color: white;
+  padding-top: 20px;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+.footer-conteudo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+
+/* .footer-titulo {
+  text-align: center;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  padding-bottom: 15px;
+} */
+
+.footer-subtitulo {
+  padding-bottom: 15px;
+}
+
+.footer-direitos {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px;
+}
+
+.footer-copyright {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
+
+.footer-citacao {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+  text-align: right;
+  max-width: 300px;
+}
+
+.footer-contato a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-contato a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer-logo img {
+  width: 140px;
+}
