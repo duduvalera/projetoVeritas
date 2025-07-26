@@ -16,27 +16,31 @@ const containerFormLogin = `
   </div>
 `;
 
-sessionCheck(function (resp) {
-  if (resp) {
-    document.getElementsByClassName("container-form-login")[0].remove();
-    const elementoBotaoLogout = document.createElement("button");
-    elementoBotaoLogout.className = "button";
-    elementoBotaoLogout.textContent = "Sair";
+export default function initLogin() {
+  sessionCheck(function (resp) {
+    if (resp) {
+      document.getElementsByClassName("container-form-login")[0].remove();
+      const elementoBotaoLogout = document.createElement("button");
+      elementoBotaoLogout.className = "button";
+      elementoBotaoLogout.textContent = "Sair";
 
-    elementoBotaoLogout.addEventListener("click", async function () {
-      await logout();
-    });
-
-    document.getElementById(
-      "status"
-    ).textContent = `Bem-vindo, ${resp.user.email}!`;
-    document.querySelector(".main").appendChild(elementoBotaoLogout);
-  } else {
-    document
-      .querySelector("#login-button")
-      .addEventListener("click", async function () {
-        await signIn();
+      elementoBotaoLogout.addEventListener("click", async function () {
+        await logout();
       });
-    // Aqui você pode redirecionar ou exibir conteúdo para usuários não logados
-  }
-});
+
+      document.getElementById(
+        "status"
+      ).textContent = `Bem-vindo, ${resp.user.email}!`;
+      document.querySelector(".main").appendChild(elementoBotaoLogout);
+    } else {
+      document.querySelector("#login-button") &&
+        document
+          .querySelector("#login-button")
+          .addEventListener("click", async function () {
+            await signIn();
+          });
+    }
+  });
+}
+
+initLogin();

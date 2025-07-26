@@ -1,3 +1,4 @@
+import initLogin from "./login.js";
 export default function initFetchPage() {
   const links = document.querySelectorAll("a");
 
@@ -11,6 +12,9 @@ export default function initFetchPage() {
     const pageResponse = await fetch(url);
     const pageText = await pageResponse.text();
     replaceContent(pageText);
+    if (url.includes("login.html")) {
+      initLogin();
+    }
   }
 
   function replaceContent(newText) {
