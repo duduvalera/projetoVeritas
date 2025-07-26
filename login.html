@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <title>GRUPO VERITAS</title>
+  <link rel="stylesheet" href="./css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -17,10 +17,10 @@
       <nav class="header-menu">
         <ul class="menu-lista font-2-s">
           <li id="">
-            <a href="#">Home</a>
+            <a href="./index.html">Home</a>
           </li>
           <li id="">
-            <a href="#">Contato</a>
+            <a href="./contato.html">Contato</a>
           </li>
           <li id="">
             <a href="">Login</a>
@@ -30,7 +30,7 @@
     </div>
     <div class="header-logo">
       <div class="logo-veritas">
-        <img src="../img/logo__.png" width="300px" alt="">
+        <img class="imagem-logo" src="./img/logo__.png" alt="">
       </div>
       <h1 class="titulo-principal font-1-xxl cor-0">Veritas</h1>
       <h3 class="font-1-xl cor-0">Formação Católica</h3>
@@ -51,17 +51,38 @@
             <label for="password">Senha</label>
             <input type="password" id="password" placeholder="Senha">
           </div>
-          <button class="button" onclick="signIn()">Entrar</button>
+          <button class="button" id="login-button">Entrar</button>
         </div>
         <p id="status"></p>
       </div>
-    </div>
   </section>
-  <footer>
 
+  <footer class="footer-bg">
+    <div class="container">
+      <div class="footer-conteudo">
+        <div class="footer-logo">
+          <img src="./img/logo__.png" width="180" alt="Grupo Veritas logo">
+          <!-- <p class="footer-titulo">Formação Católica</p> -->
+        </div>
+
+        <div class="footer-contato">
+          <h3 class="footer-subtitulo">Contato</h3>
+          <ul>
+            <li><a href="#">contato@grupoveritas.com</a></li>
+            <li><a href=#>(11) 9999-9999</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-direitos">
+        <p class="footer-copyright">© 2025 Grupo Veritas - Todos os direitos reservados</p>
+      </div>
+    </div>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script src="./script.js"></script>
+  <script type="module" src="./js/script.js"></script>
+  <script type="module" src="./js/modules/login.js"></script>
 </body>
+
 
 </html>
