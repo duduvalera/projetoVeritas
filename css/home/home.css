@@ -59,3 +59,18 @@
 .convite-participacao a:hover {
   color: var(--cor-2, #0056b3);
 }
+
+.imagem-logo {
+  width: 100px;
+  transition-duration: 2s;
+}
+
+.imagem-logo.ativo {
+  width: 300px;
+}
+
+.imagem-logo.ativo:hover {
+  filter: drop-shadow(0 0 40px white) invert(0) brightness(300%);
+
+  transition-duration: 0.5s;
+}
