@@ -4,6 +4,7 @@ export default function initFetchPage() {
   function handleClick(event) {
     event.preventDefault();
     fetchPage(event.target.href);
+    window.history.pushState(null, null, event.target.href);
   }
 
   async function fetchPage(url) {
@@ -20,7 +21,9 @@ export default function initFetchPage() {
 
     oldContent.innerHTML = newContent.innerHTML;
   }
-
+  window.addEventListener("popstate", () => {
+    fetchPage(window.location.href);
+  });
   links.forEach((link) => {
     link.addEventListener("click", handleClick);
   });

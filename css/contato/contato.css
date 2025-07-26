@@ -25,6 +25,7 @@ x/* fundo */
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 800px;
+
   gap: 40px;
   margin: 0px auto;
 }
@@ -50,11 +51,13 @@ x/* fundo */
   padding: 5px 0px;
 }
 
-.subtitulo-contato {
-  padding: 20px 0px;
-}
 .form-conteudo.form-mensagem {
   padding-bottom: 10px;
+}
+
+.campos-contato,
+.dados-contato {
+  padding: 66px 0px;
 }
 
 /* tire suas duvidas */
