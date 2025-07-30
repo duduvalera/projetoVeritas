@@ -12,6 +12,26 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <style>
+    .status-message {
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+  </style>
 </head>
 
 <body>
@@ -19,15 +39,9 @@
     <div class="container">
       <nav class="header-menu">
         <ul class="menu-lista font-2-s">
-          <li id="">
-            <a href="./index.html">Home</a>
-          </li>
-          <li id="">
-            <a href="./contato.html">Contato</a>
-          </li>
-          <li id="">
-            <a href="./login.html">Login</a>
-          </li>
+          <li id=""><a href="./index.html">Home</a></li>
+          <li id=""><a href="./contato.html">Contato</a></li>
+          <li id=""><a href="./login.html">Login</a></li>
         </ul>
       </nav>
     </div>
@@ -46,26 +60,31 @@
           <h1 class="titulo-contato">Entre em Contato</h1>
         </div>
         <main class="contato-grid">
-          <div class="campos-contato">
+          <form id="contact-form" class="campos-contato">
             <h2 class="subtitulo-contato">Tire Suas Dúvidas</h2>
             <div class="form-nome form-conteudo">
-              <label for="">Nome</label>
-              <input type="text">
+              <label for="user_name">Nome</label>
+              <input type="text" id="user_name" name="user_name" required>
+            </div>
+            <div class="form-numero form-conteudo">
+              <label for="user_number">Número (Whatsapp)</label>
+              <input type="tel" id="user_number" name="user_number" placeholder="(XX) XXXXX-XXXX" required>
             </div>
             <div class="form-email form-conteudo">
-              <label for="">E-mail</label>
-              <input type="email">
+              <label for="user_email">E-mail</label>
+              <input type="email" id="user_email" name="user_email" required>
             </div>
             <div class="form-mensagem form-conteudo">
-              <label for="">Mensagem</label>
-              <textarea name="" id=""></textarea>
+              <label for="message">Mensagem</label>
+              <textarea name="message" id="message" required></textarea>
             </div>
-            <button class="button">Enviar Mensagem</button>
-          </div>
+            <button class="button" type="submit">Enviar Mensagem</button>
+            <div id="status-message"></div>
+          </form>
           <div class="dados-contato">
             <h2 class="subtitulo-contato">Dados de Contato</h2>
             <ul class="lista-contato">
-              <li>veritas_grupo@gmail.com</li>
+              <li>veritasformacaocatolica@gmail.com</li>
               <li>facebook.com/veritas</li>
               <li>instagram.com/veritas</li>
               <li>youtube.com/veritas</li>
@@ -103,16 +122,19 @@
     </div>
   </footer>
 
-  <section class="contato-bg">
-
-
-  </section>
-  <footer>
-
-  </footer>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script type="module" src="./js/script.js"></script>
-  <script type="module" src="./js/modules/login.js"></script>
+  <script type="module">
+    import initFetchPage from "./js/modules/fetchPage.js";
+    import initAnimaLogo from "./js/modules/animeHeader.js";
+    import initContatoForm from "./js/modules/contato.js";
+
+    initFetchPage();
+    initAnimaLogo();
+    // Verifica se estamos na página de contato para iniciar o formulário
+    if (window.location.pathname.includes('contato.html')) {
+      initContatoForm();
+    }
+  </script>
 </body>
 
 </html>

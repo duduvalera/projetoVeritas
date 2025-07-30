@@ -49,12 +49,12 @@ h3 {
 }
 
 .titulo-principal {
-  /* font-size: 3rem;
+  font-size: 3rem;
   font-weight: bold;
   background: linear-gradient(270deg, #c8943d, #ffffff, #c8943d);
   background-size: 300% 100%;
   color: transparent;
-  background-clip: text; */
+  background-clip: text;
   animation: entrarTitulo 1s ease forwards, brilho-veritas 10s ease infinite 2s;
 }
 

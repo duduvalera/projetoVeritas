@@ -28,7 +28,7 @@
   list-style: none;
   padding: 0;
   margin: 0 auto 30px auto;
-  max-width: 600px;
+  max-width: 900px;
 }
 
 .lista-frentes li {
@@ -73,4 +73,82 @@
   filter: drop-shadow(0 0 40px white) invert(0) brightness(300%);
 
   transition-duration: 0.5s;
+}
+
+/* ACCORDION CSS */
+
+.lista-frentes dt {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--cor-11);
+  cursor: pointer;
+  position: relative;
+  padding-left: 30px;
+}
+
+.lista-frentes dt::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 10px;
+  background: var(--cor-11);
+  position: absolute;
+  left: 0;
+  top: 10px;
+}
+
+.lista-frentes dt::after {
+  content: "✝";
+  position: absolute;
+  right: 0;
+  top: 5px;
+  font-size: 1rem;
+  transition: transform 0.3s;
+}
+
+.lista-frentes dt.ativo::after {
+  transform: rotate(-45deg);
+}
+
+.lista-frentes dd {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 0.5rem;
+  padding-left: 30px;
+  line-height: 1.6;
+}
+
+.js .lista-frentes dd {
+  display: none;
+}
+
+.js .lista-frentes dd.ativo {
+  display: block;
+  animation: slideDown 0.5s forwards;
+}
+
+.local-info {
+  margin-top: 15px;
+  padding: 12px 15px;
+  background-color: #f7f7f7;
+  border-left: 3px solid #121c33;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.9rem;
+}
+
+.local-info p {
+  margin: 0;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    max-height: 200px;
+    opacity: 1;
+  }
 }
