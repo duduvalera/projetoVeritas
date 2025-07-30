@@ -16,52 +16,6 @@ const containerFormLogin = `
   </div>
 `;
 
-// async function signInTeste() {
-//   const email = document.getElementById("email").value;
-//   const password = document.getElementById("password").value;
-
-//   try {
-//     const { data, error } = await supabaseInit.auth.signInWithPassword({
-//       email,
-//       password,
-//     });
-
-//     if (error) {
-//       throw error;
-//     }
-
-//     document.getElementById(
-//       "status"
-//     ).textContent = `Bem-vindo, ${data.user.email}!`;
-
-//     const elementoBotaoLogout = document.createElement("button");
-//     elementoBotaoLogout.className = "button";
-//     elementoBotaoLogout.textContent = "Sair";
-
-//     document.getElementsByClassName("container-form-login")[0].remove();
-
-//     elementoBotaoLogout.addEventListener("click", async function () {
-//       const { success, error } = await logout();
-
-//       console.log(success, error);
-//       if (!success) {
-//         document.getElementById(
-//           "status"
-//         ).textContent = `Erro ao sair: ${error.message}`;
-//         return;
-//       }
-
-//       window.location.reload();
-//     });
-
-//     document.querySelector(".main").appendChild(elementoBotaoLogout);
-//   } catch (error) {
-//     document.getElementById(
-//       "status"
-//     ).textContent = `Usuário ou senha inválidos. Tente novamente.`;
-//   }
-// }
-
 export default async function initLogin() {
   const session = await sessionCheck();
 
