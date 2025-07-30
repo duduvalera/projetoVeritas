@@ -71,7 +71,18 @@ export default async function initLogin() {
     elementoBotaoLogout.className = "button";
     elementoBotaoLogout.textContent = "Sair";
 
-    elementoBotaoLogout.addEventListener("click", logout);
+    elementoBotaoLogout.addEventListener("click", async function () {
+      const { success, error } = await logout();
+
+      if (!success) {
+        document.getElementById(
+          "status"
+        ).textContent = `Erro ao sair: ${error}`;
+        return;
+      }
+
+      window.location.reload();
+    });
 
     document.getElementById(
       "status"
