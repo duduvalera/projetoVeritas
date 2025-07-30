@@ -13,6 +13,7 @@ const containerFormLogin = `
       <input type="password" id="password" placeholder="Senha">
     </div>
     <button class="button" onclick="signIn()">Entrar</button>
+    <a id="resetPassword" href="#">Esqueci minha senha</a>
   </div>
 `;
 
@@ -43,9 +44,9 @@ export default async function initLogin() {
     ).textContent = `Bem-vindo, ${session.user.email}!`;
     document.querySelector(".main").appendChild(elementoBotaoLogout);
   } else {
-    document.querySelector("#login-button") &&
+    document.getElementById("loginButton") &&
       document
-        .querySelector("#login-button")
+        .getElementById("loginButton")
         .addEventListener("click", async function () {
           const email = document.getElementById("email").value;
           const password = document.getElementById("password").value;
@@ -83,6 +84,38 @@ export default async function initLogin() {
           });
 
           document.querySelector(".main").appendChild(elementoBotaoLogout);
+        });
+
+    document.querySelector("#resetPassword") &&
+      document
+        .querySelector("#resetPassword")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          const email = document.getElementById("email").value;
+
+          console.log(email.length);
+
+          if (email.length === 0) {
+            document.getElementById(
+              "status"
+            ).textContent = `Por favor, insira seu e-mail.`;
+            return;
+          }
+
+          console.log(email.length);
+
+          // supabaseInit.auth
+          //   .resetPasswordForEmail(email)
+          //   .then(() => {
+          //     document.getElementById(
+          //       "status"
+          //     ).textContent = `Instruções para redefinir a senha foram enviadas para ${email}.`;
+          //   })
+          //   .catch((error) => {
+          //     document.getElementById(
+          //       "status"
+          //     ).textContent = `Erro ao enviar e-mail de redefinição: ${error.message}`;
+          //   });
         });
   }
 }
