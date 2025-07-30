@@ -1,20 +1,15 @@
-import { supabaseInit } from "./signIn.js";
-
-import sessionCheck from "./session.js";
+import { supabaseInit } from "./supabase.js";
 
 export default async function logout() {
   try {
     const { error } = await supabaseInit.auth.signOut();
 
-    if (!error) {
-      window.location.reload();
-      return;
+    if (error) {
+      return { success: false, error };
     }
 
-    document.getElementById(
-      "status"
-    ).textContent = `Erro ao sair: ${error.message}`;
+    return { success: true, error: null };
   } catch (error) {
-    console.error("Erro ao realizar logout:", error);
+    return { success: false, error };
   }
 }

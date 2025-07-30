@@ -1,16 +1,12 @@
-import { supabaseInit } from "./signIn.js";
+import { supabaseInit } from "./supabase.js";
 
-export default async function sessionCheck(callback) {
+export default async function sessionCheck() {
   try {
     const {
       data: { session },
     } = await supabaseInit.auth.getSession();
 
-    if (session) {
-      callback(session);
-      return;
-    }
-    callback(null);
+    return session;
   } catch (error) {
     console.error("Erro ao verificar sessão:", error);
   }
