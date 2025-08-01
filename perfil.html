@@ -39,39 +39,53 @@
       <h3 class="font-1-xl cor-0">Formação Católica</h3>
     </div>
   </header>
+
   <section class="main-bg">
     <div class="container">
       <div class="main">
         <div class="container-titulo">
-          <h1 class="titulo-contato">Login</h1>
+          <h1 class="titulo-contato">Editar Perfil</h1>
         </div>
-        <div class="login-grid">
-          <div class="container-form-login">
-            <h3>Acesse sua conta</h3>
-            <div class="form-conteudo">
-              <label for="email">E-mail</label>
-              <input type="email" id="email" placeholder="Email">
-            </div>
-            <div class="form-conteudo">
-              <label for="password">Senha</label>
-              <input type="password" id="password" placeholder="Senha">
-            </div>
-            <button class="button" id="login-button">Entrar</button>
-            <a class="esqueci-senha" href="#">Esqueci minha senha</a>
-            <p id="status"></p>
-          </div>
 
-          <div class="container-detail-login">
-            <div class="img-login">
-              <img src="/img/g1teste.svg" alt="">
-              <blockquote>
-                <p class="font-1-l">"Conhecer a verdade é o primeiro passo para amá-la."</p>
-                <cite class="font-2-s">Santo Agostinho</cite>
-              </blockquote>
+        <div class="container-perfil">
+          <h1 class="titulo-perfil">Meu Perfil</h1>
+
+          <form id="perfil-formulario" class="perfil-formulario">
+            <div class="perfil-foto-container">
+              <div id="foto-preview" class="perfil-foto-preview"></div>
+              <div class="formulario-grupo">
+                <label for="foto">Alterar Foto de Perfil</label>
+                <label for="foto" class="botao-upload">Carregar Imagem</label>
+                <input type="file" id="foto" name="foto"">
+              </div>
             </div>
 
-          </div>
+            <div class=" formulario-grupo">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+              </div>
+
+              <div class="form-grupo">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="seu_email@exemplo.com" disabled>
+              </div>
+
+              <h2 class="titulo-perfil titulo2">Alterar Senha</h2>
+
+              <div class="formulario-grupo">
+                <label for="senha-atual">Senha Atual</label>
+                <input type="password" id="senha-atual" name="senha-atual" placeholder="••••••••">
+              </div>
+
+              <div class="formulario-grupo">
+                <label for="nova-senha">Nova Senha</label>
+                <input type="password" id="nova-senha" name="nova-senha" placeholder="••••••••">
+              </div>
+
+              <button type="submit" class="botao">Salvar Alterações</button>
+          </form>
         </div>
+      </div>
   </section>
 
   <footer class="footer-bg">
