@@ -1,0 +1,70 @@
+.login-grid {
+  display: grid;
+  grid-template-columns: 0.7fr 1fr;
+}
+
+.container-form-login {
+  background: var(--cor-0);
+  padding: 25px;
+  margin: 50px;
+  border-radius: 5px;
+}
+.container-form-login h3 {
+  padding: 20px;
+}
+
+#login-button {
+  display: inline;
+  width: 100%;
+  margin: 20px 0px;
+}
+
+.esqueci-senha {
+  display: block;
+  text-align: right;
+  font-size: 14px;
+  margin: -8px 0 20px 0;
+  color: #121c33;
+}
+
+.esqueci-senha:hover {
+  text-decoration: underline;
+}
+
+.container-detail-login {
+  display: flex;
+  justify-content: start;
+}
+
+.img-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.img-login img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin: 50px 0px;
+}
+
+.container-detail-login blockquote {
+  padding-left: 16px;
+  border-left: 3px solid #121c33;
+  max-width: 600px;
+}
+
+.container-detail-login blockquote p {
+  font-style: italic;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.container-detail-login blockquote cite {
+  display: block;
+  text-align: left;
+  font-style: normal;
+  font-weight: 700;
+}
