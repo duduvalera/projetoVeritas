@@ -1,6 +1,6 @@
 import initLogin from "./login.js";
 export default function initFetchPage() {
-  const links = document.querySelectorAll("a");
+  const links = document.querySelectorAll("a[linkFetch]");
 
   function handleClick(event) {
     event.preventDefault();

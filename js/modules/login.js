@@ -1,6 +1,7 @@
 import signIn from "./signin.js";
 import sessionCheck from "./session.js";
 import logout from "./logout.js";
+import sendResetLink from "./sendResetLink.js";
 
 const containerFormLogin = `
   <div class="container-form-login">
@@ -12,7 +13,7 @@ const containerFormLogin = `
       <label for="password">Senha</label>
       <input type="password" id="password" placeholder="Senha">
     </div>
-    <button class="button" onclick="signIn()">Entrar</button>
+    <button class="button" id="loginButton">Entrar</button>
     <a id="resetPassword" href="#">Esqueci minha senha</a>
   </div>
 `;
@@ -21,7 +22,8 @@ export default async function initLogin() {
   const session = await sessionCheck();
 
   if (session) {
-    document.getElementsByClassName("container-form-login")[0].remove();
+    document.getElementsByClassName("container-form-login").length &&
+      document.getElementsByClassName("container-form-login")[0].remove();
     const elementoBotaoLogout = document.createElement("button");
     elementoBotaoLogout.className = "button";
     elementoBotaoLogout.textContent = "Sair";
@@ -89,35 +91,29 @@ export default async function initLogin() {
     document.querySelector("#resetPassword") &&
       document
         .querySelector("#resetPassword")
-        .addEventListener("click", function (event) {
+        .addEventListener("click", async function (event) {
           event.preventDefault();
           const email = document.getElementById("email").value;
 
-          console.log(email.length);
-
-          if (email.length === 0) {
+          if (!email) {
             document.getElementById(
               "status"
             ).textContent = `Por favor, insira seu e-mail.`;
             return;
           }
 
-          console.log(email.length);
+          const { success, data, error } = await sendResetLink(email);
 
-          // supabaseInit.auth
-          //   .resetPasswordForEmail(email)
-          //   .then(() => {
-          //     document.getElementById(
-          //       "status"
-          //     ).textContent = `Instruções para redefinir a senha foram enviadas para ${email}.`;
-          //   })
-          //   .catch((error) => {
-          //     document.getElementById(
-          //       "status"
-          //     ).textContent = `Erro ao enviar e-mail de redefinição: ${error.message}`;
-          //   });
+          if (!success) {
+            document.getElementById(
+              "status"
+            ).textContent = `Erro ou enviar email. Consulte o administrador ou tente novamente.`;
+            return;
+          }
+
+          document.getElementById(
+            "status"
+          ).textContent = `Link de redefinição enviado. Verifique sua caixa de entrada.`;
         });
   }
 }
-
-initLogin();
