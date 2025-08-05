@@ -20,7 +20,6 @@ const containerFormLogin = `
 
 export default async function initLogin() {
   const session = await sessionCheck();
-  console.log(session);
 
   if (session) {
     document.getElementsByClassName("container-form-login").length &&
