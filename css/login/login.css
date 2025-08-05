@@ -67,4 +67,10 @@
   text-align: left;
   font-style: normal;
   font-weight: 700;
+  grid-row: 1;
+}
+
+#status {
+  grid-column: 1;
+  grid-row: 2;
 }
