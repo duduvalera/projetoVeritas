@@ -20,6 +20,7 @@ const containerFormLogin = `
 
 export default async function initLogin() {
   const session = await sessionCheck();
+  console.log(session);
 
   if (session) {
     document.getElementsByClassName("container-form-login").length &&
@@ -46,9 +47,9 @@ export default async function initLogin() {
     ).textContent = `Bem-vindo, ${session.user.email}!`;
     document.querySelector(".main").appendChild(elementoBotaoLogout);
   } else {
-    document.getElementById("loginButton") &&
+    document.getElementById("login-button") &&
       document
-        .getElementById("loginButton")
+        .getElementById("login-button")
         .addEventListener("click", async function () {
           const email = document.getElementById("email").value;
           const password = document.getElementById("password").value;
