@@ -1,5 +1,7 @@
 import { supabaseInit } from "./supabase.js";
 import sessionCheck from "./session.js";
+import logout from "./logout.js";
+import { fetchPage } from "./fetchPage.js";
 
 const containerFormResetPassword = `
   <div class="container-form-reset-password">
@@ -46,6 +48,24 @@ export default async function initResetPassword() {
           document.getElementById(
             "status"
           ).textContent = `Senha atualizada com sucesso!`;
+
+          const { success, error: logoutError } = await logout();
+
+          if (!success) {
+            document.getElementById(
+              "status"
+            ).textContent = `Erro ao sair: ${logoutError.message}`;
+            return;
+          }
+
+          document.getElementById(
+            "status"
+          ).textContent = `Você foi desconectado. Faça login novamente.`;
+
+          setTimeout(() => {
+            fetchPage("login.html");
+            window.history.pushState(null, null, "login.html");
+          }, 2000);
         } catch (error) {
           document.getElementById(
             "status"
@@ -61,5 +81,3 @@ export default async function initResetPassword() {
     ).textContent = `Token inválido ou expirado.`;
   }
 }
-
-initResetPassword();
