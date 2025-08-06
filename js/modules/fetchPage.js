@@ -1,5 +1,6 @@
 import initLogin from "./login.js";
 import initResetPassword from "./reset.js";
+
 export default function initFetchPage() {
   const links = document.querySelectorAll("a[linkFetch]");
 
