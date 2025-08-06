@@ -45,7 +45,7 @@ h3 {
 }
 
 .header-logo h3 {
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 .titulo-principal {
@@ -79,4 +79,54 @@ h3 {
   100% {
     background-position: 0% 50%;
   }
+}
+
+/* PERFIL MIATURA STYLE */
+
+.menu-lista {
+  align-items: center;
+}
+
+#foto-preview-nav {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #b9b7b7;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #cb933c;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #121d33;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 4px;
+}
+
+.menu-lista .dropdown-content a {
+  color: var(--cor-0);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--cor-1);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }

@@ -1,4 +1,5 @@
 import initLogin from "./login.js";
+
 export default function initFetchPage() {
   const links = document.querySelectorAll("a[linkFetch]");
 
