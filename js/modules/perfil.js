@@ -79,5 +79,3 @@ export default async function initPerfil() {
     window.history.pushState(null, null, "login.html");
   }
 }
-
-initPerfil();

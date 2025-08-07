@@ -1,7 +1,9 @@
 import initLogin from "./login.js";
 import initResetPassword from "./reset.js";
+import initPerfil from "./perfil.js";
+import initMenu from "./menu.js";
 
-export default function initFetchPage() {
+export function initFetchPage() {
   const links = document.querySelectorAll("a[linkFetch]");
 
   function handleClick(event) {
@@ -31,9 +33,12 @@ export async function fetchPage(url) {
   const pageResponse = await fetch(url);
   const pageText = await pageResponse.text();
   replaceContent(pageText);
+  initMenu();
   if (url.includes("login.html")) {
     initLogin();
   } else if (url.includes("reset.html")) {
     initResetPassword();
+  } else if (url.includes("perfil.html")) {
+    initPerfil();
   }
 }
