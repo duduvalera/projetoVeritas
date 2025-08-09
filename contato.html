@@ -39,9 +39,15 @@
     <div class="container">
       <nav class="header-menu">
         <ul class="menu-lista font-2-s">
-          <li id=""><a linkFetch href="./index.html">Home</a></li>
-          <li id=""><a linkFetch href="./contato.html">Contato</a></li>
-          <li id=""><a linkFetch href="./login.html">Login</a></li>
+          <li id="">
+            <a linkFetch href="./index.html">Home</a>
+          </li>
+          <li id="">
+            <a linkFetch href="./contato.html">Contato</a>
+          </li>
+          <li id="">
+            <a linkFetch href="./login.html">Login</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -123,18 +129,8 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script type="module">
-    import initFetchPage from "./js/modules/fetchPage.js";
-    import initAnimaLogo from "./js/modules/animeHeader.js";
-    import initContatoForm from "./js/modules/contato.js";
-
-    initFetchPage();
-    initAnimaLogo();
-    // Verifica se estamos na página de contato para iniciar o formulário
-    if (window.location.pathname.includes('contato.html')) {
-      initContatoForm();
-    }
-  </script>
+  <script type="module" src="./js/script.js"></script>
+  <script type="module" src="./js/modules/contato.js"></script>
 </body>
 
 </html>
