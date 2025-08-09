@@ -1,0 +1,140 @@
+/* ============================================= */
+/* LISTA DE EVENTOS - CALENDÁRIO         */
+/* ============================================= */
+
+/* Container principal da lista de eventos */
+.events-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e9eef5;
+  margin: 40px auto; /* Centraliza e adiciona espaço */
+  max-width: 900px;
+}
+
+/* Cabeçalho da seção */
+.events-header {
+  padding: 25px 30px;
+  border-bottom: 1px solid #e9eef5;
+}
+
+.events-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.6rem;
+  color: var(--cor-1); /* Usando sua variável de cor */
+  margin: 0;
+}
+
+.events-description {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin: 4px 0 0 0;
+  text-align: center;
+}
+
+/* A lista que agrupa todos os itens de evento */
+.events-list {
+  padding: 10px 30px;
+}
+
+/* Cada linha de evento */
+.event-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.event-item:last-child {
+  border-bottom: none;
+}
+
+/* Bloco da data (dia e mês) */
+.event-date {
+  text-align: center;
+  min-width: 60px;
+}
+
+.event-date .day {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #c8943d;
+  line-height: 1;
+}
+
+.event-date .month {
+  display: block;
+  font-size: 0.8rem;
+  color: #6b7280;
+  text-transform: uppercase;
+}
+
+/* Bloco dos detalhes (título e local) */
+.event-details {
+  flex: 1; /* Faz esta div ocupar o espaço restante */
+}
+
+.event-details .title {
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: var(--cor-1);
+  margin: 0 0 4px 0;
+}
+
+.event-details .location {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.botao-acao {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background-color: transparent;
+  border: 1px solid #dde3ea;
+  border-radius: 8px;
+  color: #343a40;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.botao-acao:hover {
+  background-color: #c8943d;
+  color: white;
+  border-color: #ced4da;
+}
+
+.botao-acao .icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .events-header,
+  .events-list {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .event-item {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .event-details {
+    flex-basis: calc(100% - 80px);
+  }
+
+  .event-action {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
