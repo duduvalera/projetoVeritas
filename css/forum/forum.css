@@ -1,0 +1,248 @@
+/* ESTRUTURA GERAL */
+.forum-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e9eef5;
+}
+
+.voltar-link {
+  display: inline-block;
+  margin-bottom: 25px;
+  color: var(--cor-1);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.voltar-link:hover {
+  text-decoration: underline;
+}
+
+/* ESTILO DOS POSTS E RESPOSTAS */
+.forum-post {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px;
+  padding: 25px 0;
+  border-bottom: 1px solid #e9eef5;
+}
+
+.forum-post:last-of-type {
+  border-bottom: none;
+}
+
+.original-post {
+  border-bottom: 2px solid #dde3ea;
+}
+
+.post-autor {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100px;
+}
+
+.post-autor img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #cb933c;
+  margin-bottom: 8px;
+  object-fit: cover;
+}
+
+.post-autor strong {
+  font-size: 0.9rem;
+  color: var(--cor-1);
+}
+
+.post-autor span {
+  font-size: 0.75rem;
+  color: #6c757d;
+}
+
+.post-conteudo {
+  grid-column: 2;
+}
+
+.post-titulo {
+  font-family: "Oswald", sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  color: var(--cor-1);
+  line-height: 1.2;
+}
+
+.post-conteudo p {
+  line-height: 1.7;
+  font-size: 1rem;
+  color: #343a40;
+}
+
+.post-acoes {
+  grid-column: 3;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* BOTÃO DE CURTIR */
+.like-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f1f3f5;
+  border: 1px solid #dee2e6;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  color: var(--cor-1);
+}
+
+.like-button:hover {
+  background-color: #e9ecef;
+  border-color: #ced4da;
+}
+
+.like-button svg {
+  stroke: var(--cor-1);
+  transition: all 0.2s ease;
+}
+
+.like-button.liked {
+  background-color: #ffe3e3;
+  border-color: #ffb3b3;
+  color: #c92a2a;
+}
+
+.like-button.liked svg {
+  fill: #ff6b6b;
+  stroke: #ff6b6b;
+}
+
+/* SEÇÃO DE RESPOSTAS E FORMULÁRIO */
+.respostas-section {
+  margin-top: 30px;
+}
+
+.respostas-titulo {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.8rem;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e9eef5;
+  margin-bottom: 10px;
+}
+
+.nova-resposta-form {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 2px solid #dde3ea;
+}
+
+.nova-resposta-form h3 {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.nova-resposta-form textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 14px;
+  border: 1px solid #dddddd;
+  border-radius: 6px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: all 0.4s ease;
+  background-color: #fcfdff;
+  margin-bottom: 15px;
+}
+
+.nova-resposta-form textarea:focus {
+  border-color: #3a4b6d;
+  box-shadow: 0 0 0 3px rgba(18, 28, 51, 0.1);
+  background-color: #fff;
+  outline: none;
+}
+
+/* ============================================= */
+/* ========== ESTILOS PARA VERSÃO MOBILE (CORRIGIDO) ========== */
+/* ============================================= */
+
+/* A Media Query aplica estes estilos em telas com 768px de largura ou menos. */
+@media (max-width: 768px) {
+  /* 1. Ajusta o container geral para ter menos espaçamento */
+  .forum-container {
+    padding: 20px 15px;
+  }
+
+  /* 2. CORREÇÃO PRINCIPAL: Redefine o layout do post */
+  .forum-post {
+    /* Muda para uma única coluna */
+    grid-template-columns: 1fr;
+    /* Define explicitamente as áreas do layout mobile */
+    grid-template-areas:
+      "autor"
+      "conteudo"
+      "acoes";
+    gap: 15px; /* Reduz o espaçamento entre as linhas */
+  }
+
+  /* 3. Coloca cada elemento na sua nova área definida */
+  .post-autor {
+    grid-area: autor;
+  }
+  .post-conteudo {
+    grid-area: conteudo;
+  }
+  .post-acoes {
+    grid-area: acoes;
+  }
+
+  /* 4. Ajusta o layout do autor para ser horizontal */
+  .post-autor {
+    flex-direction: row; /* Imagem e texto ficam lado a lado */
+    align-items: center;
+    text-align: left;
+    width: 100%; /* Ocupa a largura total */
+    gap: 12px;
+  }
+
+  .post-autor img {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 0; /* Remove a margem que existia no desktop */
+  }
+
+  /* 5. Ajusta os tamanhos das fontes para telas menores */
+  .post-titulo {
+    font-size: 1.6rem;
+  }
+
+  .post-conteudo p {
+    font-size: 0.95rem;
+  }
+
+  .respostas-titulo,
+  .nova-resposta-form h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Ajustes finos para telas muito pequenas (celulares) */
+@media (max-width: 480px) {
+  .forum-container {
+    padding: 15px 10px;
+  }
+
+  .post-titulo {
+    font-size: 1.4rem;
+  }
+}

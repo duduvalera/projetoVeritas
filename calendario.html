@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fórum - Grupo Veritas</title>
+  <script>document.documentElement.className += ' js';</script>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto:ital,wght@0,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="header-bg">
+    <div class="container">
+      <nav class="header-menu">
+        <ul class="menu-lista font-2-s">
+          <li id=""><a linkFetch href="./index.html">Home</a></li>
+          <li id=""><a linkFetch href="./contato.html">Contato</a></li>
+          <li id=""><a linkFetch href="./login.html">Login</a></li>
+          <li id=""><a linkFetch href="./membros.html">Área de Membros</a></li>
+
+          <li class="dropdown">
+            <div id="foto-preview-nav" class="perfil-foto-preview" style="background-image: url('./img/placeholder-avatar.png');"></div>
+            <div class="dropdown-content">
+              <a href="./perfil.html">Configurações</a>
+
+              <a href="#">Sair</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="header-logo">
+      <div class="logo-veritas">
+        <img class="imagem-logo" src="./img/logo__.png" alt="Logo Veritas">
+      </div>
+      <h1 class="titulo-principal font-1-xxl cor-0">Veritas</h1>
+      <h3 class="font-1-xl cor-0">Formação Católica</h3>
+    </div>
+  </header>
+
+  <section class="main-bg">
+    <div class="container">
+      <div class="main">
+        <div class="container-titulo-home">
+          <h1 class="titulo-contato">Calendário</h1>
+        </div>
+        <div class="forum-container">
+          <a href="./membros.html" class="voltar-link">&larr; Voltar para a Área de Membros</a>
+          <div class="events-container">
+            <div class="events-header">
+              <h3 class="events-title">Calendário de Eventos</h3>
+              <p class="events-description">
+                Acompanhe os encontros de formação, celebrações litúrgicas e ações de caridade.
+              </p>
+            </div>
+
+            <div class="events-list">
+              <div class="event-item">
+                <div class="event-date">
+                  <span class="day">15</span>
+                  <span class="month">Jan</span>
+                </div>
+                <div class="event-details">
+                  <h4 class="title">Encontro de Formação - Veritas</h4>
+                  <p class="location">18:30 • Sala de Catequese - Paróquia José de Anchieta</p>
+                </div>
+                <div class="event-action">
+                  <button class="botao-acao">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Confirmar</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="event-item">
+                <div class="event-date">
+                  <span class="day">18</span>
+                  <span class="month">Jan</span>
+                </div>
+                <div class="event-details">
+                  <h4 class="title">Adoração ao Santíssimo</h4>
+                  <p class="location">20:00 • Capela Santa Rita</p>
+                </div>
+                <div class="event-action">
+                  <button class="botao-acao">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Confirmar</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="event-item">
+                <div class="event-date">
+                  <span class="day">22</span>
+                  <span class="month">Jan</span>
+                </div>
+                <div class="event-details">
+                  <h4 class="title">Ação de Caridade</h4>
+                  <p class="location">14:00 • Centro Comunitário</p>
+                </div>
+                <div class="event-action">
+                  <button class="botao-acao">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Confirmar</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="event-item">
+                <div class="event-date">
+                  <span class="day">25</span>
+                  <span class="month">Jan</span>
+                </div>
+                <div class="event-details">
+                  <h4 class="title">Retiro Espiritual</h4>
+                  <p class="location">08:00 • Casa de Retiro</p>
+                </div>
+                <div class="event-action">
+                  <button class="botao-acao">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Confirmar</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-bg">
+    <div class="container">
+      <div class="footer-conteudo">
+        <div class="footer-logo">
+          <img src="./img/logo__.png" width="180" alt="Grupo Veritas logo">
+          <!-- <p class="footer-titulo">Formação Católica</p> -->
+        </div>
+
+        <div class="footer-contato">
+          <h3 class="footer-subtitulo">Contato</h3>
+          <ul>
+            <li><a href="#">contato@grupoveritas.com</a></li>
+            <li><a href=#>(11) 9999-9999</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-direitos">
+        <p class="footer-copyright">© 2025 Grupo Veritas - Todos os direitos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script type="module" src="./js/script.js"></script>
+</body>
+
+</html>
