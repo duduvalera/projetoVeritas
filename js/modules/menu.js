@@ -48,17 +48,15 @@ export default async function initMenu() {
     }
 
     handleLogout();
-    initFetchPage();
-    return;
+  } else {
+    document.getElementById("foto-preview-nav") &&
+      document.getElementById("foto-preview-nav").parentElement.remove();
+
+    !document.querySelector("a[href='./login.html']") &&
+      document
+        .querySelector(".header-menu > .menu-lista")
+        .insertAdjacentHTML("beforeend", elementLogin);
   }
-
-  document.getElementById("foto-preview-nav") &&
-    document.getElementById("foto-preview-nav").parentElement.remove();
-
-  !document.querySelector("a[href='./login.html']") &&
-    document
-      .querySelector(".header-menu > .menu-lista")
-      .insertAdjacentHTML("beforeend", elementLogin);
 
   initFetchPage();
 }

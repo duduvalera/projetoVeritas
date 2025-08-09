@@ -13,6 +13,7 @@ initAccordion();
 if (window.location.pathname.includes("login.html")) {
   initLogin();
 }
+
 if (window.location.pathname.includes("reset.html")) {
   initResetPassword();
 }
