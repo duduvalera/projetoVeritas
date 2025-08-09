@@ -5,8 +5,6 @@ import logout from "./logout.js";
 import { fetchPage } from "./fetchPage.js";
 
 export default async function initPerfil() {
-  console.log("Iniciou a tela de perfil");
-
   const session = await sessionCheck();
 
   if (session && session.user) {
