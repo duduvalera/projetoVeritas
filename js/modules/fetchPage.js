@@ -16,7 +16,10 @@ export function initFetchPage() {
     fetchPage(window.location.href);
   });
   links.forEach((link) => {
-    link.addEventListener("click", handleClick);
+    if (!link.hasAttribute("data-event-click")) {
+      link.addEventListener("click", handleClick);
+      link.setAttribute("data-event-click", "true");
+    }
   });
 }
 
