@@ -23,54 +23,147 @@ export default async function initPerfil() {
       .addEventListener("submit", async function (event) {
         event.preventDefault();
 
+        const nome = document.getElementById("nome").value;
         const senhaAtual = document.getElementById("senha-atual").value;
         const novaSenha = document.getElementById("nova-senha").value;
 
-        const { data: userData, error: erroUser } =
-          await supabaseInit.auth.getUser();
-
-        if (erroUser && !userData) {
-          console.error("Erro ao obter dados do usuário:", erroUser);
+        if (senhaAtual.length && !novaSenha.length) {
+          console.log("Por favor, preencha a nova senha.");
           return;
         }
 
-        const userEmail = userData.user.email;
-
-        console.log(userEmail);
-
-        const { success, data, error } = await signIn(userEmail, senhaAtual);
-
-        if (!success) {
-          console.log("Erro ao fazer login");
+        if (!senhaAtual.length && novaSenha.length) {
+          console.log("Por favor, preencha a senha atual.");
           return;
         }
 
-        const { error: errorUpdate } = await supabaseInit.auth.updateUser({
-          password: novaSenha,
-        });
+        if (
+          nome.length &&
+          nome !== userProfileInfo.data.full_name &&
+          !senhaAtual.length &&
+          !novaSenha.length
+        ) {
+          const { error: errorUpdate } = await supabaseInit
+            .from("profiles")
+            .update({ full_name: nome })
+            .eq("id", session.user.id);
 
-        if (errorUpdate) {
-          document.getElementById(
-            "status"
-          ).textContent = `Erro ao atualizar a senha: ${error.message}`;
+          if (errorUpdate) {
+            console.error("Erro ao atualizar o nome:", errorUpdate);
+            return;
+          }
+
+          fetchPage("perfil.html");
+          window.history.pushState(null, null, "perfil.html");
           return;
         }
 
-        console.log("Senha atualizada com sucesso!");
+        if (
+          nome.length &&
+          nome === userProfileInfo.data.full_name &&
+          senhaAtual.length &&
+          novaSenha.length
+        ) {
+          const { data: userData, error: erroUser } =
+            await supabaseInit.auth.getUser();
 
-        const { success: successLogout, error: logoutError } = await logout();
+          if (erroUser && !userData) {
+            console.error("Erro ao obter dados do usuário:", erroUser);
+            return;
+          }
 
-        if (!successLogout) {
-          console.log("Erro ao fazer logout");
-          return;
-        }
+          const userEmail = userData.user.email;
 
-        console.log("Usuário desconectado com sucesso!");
+          const { success, data, error } = await signIn(userEmail, senhaAtual);
 
-        setTimeout(() => {
+          if (!success) {
+            console.log("Erro ao fazer login");
+            return;
+          }
+
+          const { error: errorUpdate } = await supabaseInit.auth.updateUser({
+            password: novaSenha,
+          });
+
+          if (errorUpdate) {
+            document.getElementById(
+              "status"
+            ).textContent = `Erro ao atualizar a senha: ${error.message}`;
+            return;
+          }
+
+          console.log("Senha atualizada com sucesso!");
+
+          const { success: successLogout, error: logoutError } = await logout();
+
+          if (!successLogout) {
+            console.log("Erro ao fazer logout");
+            return;
+          }
+
           fetchPage("login.html");
           window.history.pushState(null, null, "login.html");
-        }, 2000);
+          return;
+        }
+
+        if (
+          nome.length &&
+          nome !== userProfileInfo.data.full_name &&
+          senhaAtual.length &&
+          novaSenha.length
+        ) {
+          const { error: errorUpdateFName } = await supabaseInit
+            .from("profiles")
+            .update({ full_name: nome })
+            .eq("id", session.user.id);
+
+          if (errorUpdateFName) {
+            console.error("Erro ao atualizar o nome:", errorUpdateFName);
+            return;
+          }
+
+          const { data: userData, error: erroGetUser } =
+            await supabaseInit.auth.getUser();
+
+          if (erroGetUser && !userData) {
+            console.error("Erro ao obter dados do usuário:", erroGetUser);
+            return;
+          }
+
+          const userEmail = userData.user.email;
+
+          const { success, data, error } = await signIn(userEmail, senhaAtual);
+
+          if (!success) {
+            console.log("Erro ao fazer login");
+            return;
+          }
+
+          const { error: errorUpdatePassword } =
+            await supabaseInit.auth.updateUser({
+              password: novaSenha,
+            });
+
+          if (errorUpdatePassword) {
+            document.getElementById(
+              "status"
+            ).textContent = `Erro ao atualizar a senha: ${error.message}`;
+            return;
+          }
+
+          console.log("Senha e nome de usuário atualizada com sucesso!");
+
+          const { success: successLogout, error: logoutError } = await logout();
+
+          if (!successLogout) {
+            console.log("Erro ao fazer logout");
+            return;
+          }
+
+          fetchPage("login.html");
+          window.history.pushState(null, null, "login.html");
+          return;
+        }
       });
   } else {
     fetchPage("login.html");

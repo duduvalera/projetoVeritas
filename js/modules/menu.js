@@ -30,21 +30,26 @@ export default async function initMenu() {
         .insertAdjacentHTML("beforeend", elementPerfil);
 
     function handleLogout() {
-      document.querySelector("a[linkLogout]") &&
-        document
-          .querySelector("a[linkLogout]")
-          .addEventListener("click", async function (event) {
-            event.preventDefault();
-            const { success, error } = await logout();
+      if (document.querySelector("a[linkLogout]")) {
+        const logoutLink = document.querySelector("a[linkLogout]");
+        if (!logoutLink.hasAttribute("data-link-logout")) {
+          document
+            .querySelector("a[linkLogout]")
+            .addEventListener("click", async function (event) {
+              event.preventDefault();
+              const { success, error } = await logout();
 
-            if (!success) {
-              console.error("Erro ao sair:", error);
-              return;
-            }
+              if (!success) {
+                console.error("Erro ao sair:", error);
+                return;
+              }
 
-            fetchPage("./login.html");
-            window.history.pushState(null, null, "login.html");
-          });
+              fetchPage("./login.html");
+              window.history.pushState(null, null, "login.html");
+            });
+          logoutLink.setAttribute("data-link-logout", "true");
+        }
+      }
     }
 
     handleLogout();
