@@ -1,6 +1,3 @@
-import initLogin from "./login.js";
-import initResetPassword from "./reset.js";
-import initPerfil from "./perfil.js";
 import initMenu from "./menu.js";
 
 export function initFetchPage() {
@@ -37,11 +34,23 @@ export async function fetchPage(url) {
   const pageText = await pageResponse.text();
   replaceContent(pageText);
   initMenu();
+  if (url.includes("contato.html")) {
+    const { default: initContatoForm } = await import("./contato.js");
+    initContatoForm();
+  }
+
   if (url.includes("login.html")) {
+    const { default: initLogin } = await import("./login.js");
     initLogin();
-  } else if (url.includes("reset.html")) {
+  }
+
+  if (url.includes("reset.html")) {
+    const { default: initResetPassword } = await import("./reset.js");
     initResetPassword();
-  } else if (url.includes("perfil.html")) {
+  }
+
+  if (url.includes("perfil.html")) {
+    const { default: initPerfil } = await import("./perfil.js");
     initPerfil();
   }
 }
