@@ -50,3 +50,29 @@ p {
     transform: translate3d(0, 0, 0);
   }
 }
+
+.container-status .status {
+  margin: 0 50px;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.container-status .status.status-sucesso {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.container-status .status.status-erro {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.container-status .status.status-info {
+  color: #0f3a63;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+}

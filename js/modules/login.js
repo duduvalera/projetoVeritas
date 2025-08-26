@@ -2,6 +2,7 @@ import signIn from "./signin.js";
 import sessionCheck from "./session.js";
 import sendResetLink from "./sendResetLink.js";
 import { fetchPage } from "./fetchPage.js";
+import statusMessage from "./statusMessage.js";
 
 const containerFormLogin = `
   <div class="container-form-login">
@@ -32,9 +33,10 @@ export default async function initLogin() {
           const { success, data, error } = await signIn(email, password);
 
           if (!success) {
-            document.getElementById(
-              "status"
-            ).textContent = `Usuário ou senha inválidos. Tente novamente.`;
+            statusMessage(
+              "Usuário ou senha inválidos. Tente novamente.",
+              "erro"
+            );
             return;
           }
 
@@ -50,24 +52,24 @@ export default async function initLogin() {
           const email = document.getElementById("email").value;
 
           if (!email) {
-            document.getElementById(
-              "status"
-            ).textContent = `Por favor, insira seu e-mail.`;
+            statusMessage("Por favor, insira seu e-mail.", "erro");
             return;
           }
 
           const { success, data, error } = await sendResetLink(email);
 
           if (!success) {
-            document.getElementById(
-              "status"
-            ).textContent = `Erro ou enviar email. Consulte o administrador ou tente novamente.`;
+            statusMessage(
+              "Erro ou enviar email. Consulte o administrador ou tente novamente.",
+              "erro"
+            );
             return;
           }
 
-          document.getElementById(
-            "status"
-          ).textContent = `Link de redefinição enviado. Verifique sua caixa de entrada.`;
+          statusMessage(
+            "Link de redefinição enviado. Verifique sua caixa de entrada.",
+            "info"
+          );
         });
 
     return;

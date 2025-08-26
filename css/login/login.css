@@ -74,3 +74,8 @@
   grid-column: 1;
   grid-row: 2;
 }
+
+.login-grid .container-status {
+  grid-column: 1;
+  grid-row: 2;
+}
