@@ -1,6 +1,5 @@
 import signIn from "./signin.js";
 import sessionCheck from "./session.js";
-import logout from "./logout.js";
 import sendResetLink from "./sendResetLink.js";
 import { fetchPage } from "./fetchPage.js";
 
