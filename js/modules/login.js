@@ -35,7 +35,7 @@ export default async function initLogin() {
           if (!success) {
             statusMessage(
               "Usuário ou senha inválidos. Tente novamente.",
-              "erro"
+              "error"
             );
             return;
           }
@@ -52,7 +52,7 @@ export default async function initLogin() {
           const email = document.getElementById("email").value;
 
           if (!email) {
-            statusMessage("Por favor, insira seu e-mail.", "erro");
+            statusMessage("Por favor, insira seu e-mail.", "error");
             return;
           }
 
@@ -61,14 +61,13 @@ export default async function initLogin() {
           if (!success) {
             statusMessage(
               "Erro ou enviar email. Consulte o administrador ou tente novamente.",
-              "erro"
+              "error"
             );
             return;
           }
 
           statusMessage(
-            "Link de redefinição enviado. Verifique sua caixa de entrada.",
-            "info"
+            "Link de redefinição enviado. Verifique sua caixa de entrada."
           );
         });
 

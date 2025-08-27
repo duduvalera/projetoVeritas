@@ -51,6 +51,10 @@ p {
   }
 }
 
+.container-status {
+  margin-bottom: 25px;
+}
+
 .container-status .status {
   margin: 0 50px;
   padding: 10px;
@@ -59,13 +63,13 @@ p {
   text-align: center;
 }
 
-.container-status .status.status-sucesso {
+.container-status .status.status-success {
   color: #155724;
   background-color: #d4edda;
   border-color: #c3e6cb;
 }
 
-.container-status .status.status-erro {
+.container-status .status.status-error {
   color: #721c24;
   background-color: #f8d7da;
   border-color: #f5c6cb;

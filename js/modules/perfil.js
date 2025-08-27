@@ -3,6 +3,7 @@ import sessionCheck from "./session.js";
 import signIn from "./signin.js";
 import logout from "./logout.js";
 import { fetchPage } from "./fetchPage.js";
+import statusMessage from "./statusMessage.js";
 
 export default async function initPerfil() {
   const session = await sessionCheck();
@@ -28,12 +29,14 @@ export default async function initPerfil() {
         const novaSenha = document.getElementById("nova-senha").value;
 
         if (senhaAtual.length && !novaSenha.length) {
-          console.log("Por favor, preencha a nova senha.");
+          statusMessage("Por favor, preencha a nova senha.", "error");
+
           return;
         }
 
         if (!senhaAtual.length && novaSenha.length) {
-          console.log("Por favor, preencha a senha atual.");
+          statusMessage("Por favor, preencha a senha atual.", "error");
+
           return;
         }
 
@@ -49,7 +52,10 @@ export default async function initPerfil() {
             .eq("id", session.user.id);
 
           if (errorUpdate) {
-            console.error("Erro ao atualizar o nome:", errorUpdate);
+            statusMessage(
+              `Erro ao atualizar o nome: ${errorUpdate.message}`,
+              "error"
+            );
             return;
           }
 
@@ -68,7 +74,10 @@ export default async function initPerfil() {
             await supabaseInit.auth.getUser();
 
           if (erroUser && !userData) {
-            console.error("Erro ao obter dados do usuário:", erroUser);
+            statusMessage(
+              `Erro ao obter dados do usuário: ${erroUser.message}`,
+              "error"
+            );
             return;
           }
 
@@ -77,7 +86,7 @@ export default async function initPerfil() {
           const { success, data, error } = await signIn(userEmail, senhaAtual);
 
           if (!success) {
-            console.log("Erro ao fazer login");
+            statusMessage("Erro ao fazer login.", "error");
             return;
           }
 
@@ -86,18 +95,19 @@ export default async function initPerfil() {
           });
 
           if (errorUpdate) {
-            document.getElementById(
-              "status"
-            ).textContent = `Erro ao atualizar a senha: ${error.message}`;
+            statusMessage(
+              `Erro ao atualizar a senha: ${errorUpdate.message}`,
+              "error"
+            );
             return;
           }
 
-          console.log("Senha atualizada com sucesso!");
+          statusMessage("Senha atualizada com sucesso!", "success");
 
           const { success: successLogout, error: logoutError } = await logout();
 
           if (!successLogout) {
-            console.log("Erro ao fazer logout");
+            statusMessage("Erro ao fazer logout.", "error");
             return;
           }
 
@@ -118,7 +128,10 @@ export default async function initPerfil() {
             .eq("id", session.user.id);
 
           if (errorUpdateFName) {
-            console.error("Erro ao atualizar o nome:", errorUpdateFName);
+            statusMessage(
+              `Erro ao atualizar o nome: ${errorUpdateFName.message}`,
+              "error"
+            );
             return;
           }
 
@@ -126,7 +139,10 @@ export default async function initPerfil() {
             await supabaseInit.auth.getUser();
 
           if (erroGetUser && !userData) {
-            console.error("Erro ao obter dados do usuário:", erroGetUser);
+            statusMessage(
+              `Erro ao obter dados do usuário: ${erroGetUser.message}`,
+              "error"
+            );
             return;
           }
 
@@ -135,7 +151,7 @@ export default async function initPerfil() {
           const { success, data, error } = await signIn(userEmail, senhaAtual);
 
           if (!success) {
-            console.log("Erro ao fazer login");
+            statusMessage("Erro ao fazer login.", "error");
             return;
           }
 
@@ -145,18 +161,19 @@ export default async function initPerfil() {
             });
 
           if (errorUpdatePassword) {
-            document.getElementById(
-              "status"
-            ).textContent = `Erro ao atualizar a senha: ${error.message}`;
+            statusMessage(
+              `Erro ao atualizar a senha: ${errorUpdatePassword.message}`,
+              "error"
+            );
             return;
           }
 
-          console.log("Senha e nome de usuário atualizada com sucesso!");
+          statusMessage("Nome e senha atualizados com sucesso!", "success");
 
           const { success: successLogout, error: logoutError } = await logout();
 
           if (!successLogout) {
-            console.log("Erro ao fazer logout");
+            statusMessage("Erro ao fazer logout.", "error");
             return;
           }
 
