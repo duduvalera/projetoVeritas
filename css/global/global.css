@@ -80,3 +80,9 @@ p {
   background-color: #d1ecf1;
   border-color: #bee5eb;
 }
+
+.container-status .status.status-alert {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}

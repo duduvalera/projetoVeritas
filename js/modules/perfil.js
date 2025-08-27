@@ -29,13 +29,13 @@ export default async function initPerfil() {
         const novaSenha = document.getElementById("nova-senha").value;
 
         if (senhaAtual.length && !novaSenha.length) {
-          statusMessage("Por favor, preencha a nova senha.", "error");
+          statusMessage("Por favor, preencha a nova senha.", "alert");
 
           return;
         }
 
         if (!senhaAtual.length && novaSenha.length) {
-          statusMessage("Por favor, preencha a senha atual.", "error");
+          statusMessage("Por favor, preencha a senha atual.", "alert");
 
           return;
         }
