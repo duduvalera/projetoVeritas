@@ -75,7 +75,7 @@ export default async function initPerfil() {
 
           if (erroUser && !userData) {
             statusMessage(
-              `Erro ao obter dados do usuário: ${erroUser.message}`,
+              `Erro ao obter os dados do usuário: ${erroUser.message}`,
               "error"
             );
             return;
